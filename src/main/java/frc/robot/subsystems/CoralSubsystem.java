@@ -39,7 +39,7 @@ public class CoralSubsystem extends SubsystemBase {
         try {
             m_LaserCAN.setRangingMode(LaserCan.RangingMode.SHORT);
             m_LaserCAN.setTimingBudget(LaserCan.TimingBudget.TIMING_BUDGET_20MS);
-            m_LaserCAN.setRegionOfInterest(new LaserCan.RegionOfInterest(8,8,5,15));
+            m_LaserCAN.setRegionOfInterest(new LaserCan.RegionOfInterest(10,8,5,15));
         } catch (Exception e) {
             System.out.println("Laser configuration failed: " + e.getMessage());
         }
@@ -173,7 +173,7 @@ public class CoralSubsystem extends SubsystemBase {
         new Thread(() -> {
             try {
                 // Wait a short time for object to begin moving
-                Thread.sleep(150); // You can tune this
+                Thread.sleep(200); // You can tune this
     
                 // Begin slow ramp down if coral is detected
                 while (!isHoldingCoralViaLaserCAN()) {
